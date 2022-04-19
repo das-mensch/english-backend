@@ -1,0 +1,44 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "curly": ["error", "multi-line", "consistent"],
+    "eqeqeq": "error",
+    "guard-for-in": "error",
+    "max-depth": ["error", 4],
+    "max-nested-callbacks": ["error", 3],
+    "new-cap": "error",
+    "no-console": "error",
+    "no-empty": "error",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-undef": "error",
+    "no-use-before-define": "error",
+    "no-var": "error",
+    "one-var": ["error", { "initialized": "never" }],
+    "prefer-const": "error",
+    "wrap-iife": ["error", "any"],
+    "no-unused-vars": "off", // typescipt function definition would lead to false positives
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "after-used", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/member-delimiter-style": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ]
+  }
+}
