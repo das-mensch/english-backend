@@ -4,6 +4,7 @@
   "description": "checks whether words in a given string exists",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/index.js",
     "build": "tsc",
     "test:unit": "jest"
   },
