@@ -9,18 +9,17 @@ export const wordSet = new Set<string>();
  * @returns string[] an array of invalid words in the given sentence
  */
 export const checkSentence = (sentence: string): string[] => {
-  return sentence
-    .toLowerCase()
-    .replace(`n't`, ' not')
-    .replace(`'m`, ' am')
-    .replace(`'s`, ' us')
-    .replace(`'ll`, ' will')
-    .replace(`'ve`, ' have')
-    .replace(`'d`, ' had')
-    .replace(`'re`, ' are')
-    .replace(/[^a-z-\s]/gm, '')
-    .split(/\s/)
-    .filter((word) => !wordSet.has(word));
+  return (
+    sentence
+      // as our wordlist is in lowercase, we have to convert the sentence to check into lowercase also.
+      .toLowerCase()
+      // replace short forms (e.g. I'll) and remove any non valid character (allowed are a-z, - and whitespaces)
+      .replace(/(n't|'m|'s|'ll|'ve|'d|'re|[^a-z-\s])/gm, '')
+      // split sentence on whitespaces to extract each word
+      .split(/\s/)
+      // find all words not contained in our wordlist
+      .filter((word) => !wordSet.has(word))
+  );
 };
 
 /**

@@ -42,6 +42,14 @@ describe('sentence checker', () => {
     expect(checkSentence(`Let's`)).toHaveLength(0);
   });
 
+  test('should replace all occurrences of short forms', async () => {
+    expect(checkSentence(`I'll aren't aren't I'll`)).toHaveLength(0);
+  });
+
+  test('punctuation should not interfere the replacement of short forms', async () => {
+    expect(checkSentence(`I'll, aren't, aren't, I'll`)).toHaveLength(0);
+  });
+
   test('should find non existent words in string', async () => {
     expect(checkSentence('Do you likee cats adn dogs?')).toEqual(expect.arrayContaining(['likee', 'adn']));
   });
