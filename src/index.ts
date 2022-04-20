@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: /localhost/,
+    origin: /(localhost|herokuapp.com)/,
   }),
 );
 app.use(bodyParser.text());
