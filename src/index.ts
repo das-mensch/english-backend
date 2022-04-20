@@ -4,7 +4,7 @@ import express from 'express';
 import { registerRoutes } from './routes';
 import { init } from './service/check';
 
-const port = 80;
+const port = process.env.PORT || 80;
 const app = express();
 
 app.use(
